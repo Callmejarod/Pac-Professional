@@ -13,14 +13,14 @@
     h1 {
     text-align: center;
     font-family: comic sans MS;
-    color: yellow;
+    color: #CE911E;
     }
     body {
     display: flex;
     justify-content: center;
     overflow: hidden;
     height: 100vh;
-    background-color: grey;
+    background-color: rgb(216, 210, 185);
     /* background: linear-gradient(
         0deg,
         rgb
@@ -28,12 +28,25 @@
     ) */
 
     }
+
+    #heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #heading img {
+            max-width: 100px; /* Adjust the maximum width of the logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Adjust spacing between logo and heading */
+        }
     </style>
   </head>
   <body>
     <div> 
         <div id="heading">
         <h1>Pac-Professional</h1>
+        <img src="/images/yearupLogo.jpg" alt="Logo">
         </div>
       <canvas id="gameCanvas"></canvas>
     </div>
