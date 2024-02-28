@@ -12,10 +12,11 @@
     }
     h1 {
     text-align: center;
-    font-family: comic sans MS;
+    
     color: #CE911E;
     }
     body {
+    font-family: comic sans MS;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -35,11 +36,12 @@
             justify-content: center;
         }
 
-        #heading img {
-            max-width: 100px; /* Adjust the maximum width of the logo */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 10px; /* Adjust spacing between logo and heading */
-        }
+    #heading img {
+        max-width: 100px; /* Adjust the maximum width of the logo */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Adjust spacing between logo and heading */
+    }
+    
     </style>
   </head>
   <body>
@@ -49,6 +51,7 @@
         <img src="/images/yearupLogo.jpg" alt="Logo">
         </div>
       <canvas id="gameCanvas"></canvas>
+      <p class="description">Help Year Up close the opportunity divide by navigating your way throught the ghosts!</p>
     </div>
     <script src="src/Game.js" type="module"></script>
   </body>

@@ -1,4 +1,6 @@
 import Pacman from "./Pacman.js";
+import MovingDirection from "./MovingDirection.js";
+
 export default class TileMap{
   constructor(tileSize){
     this.tileSize = tileSize;
@@ -50,13 +52,13 @@ export default class TileMap{
         this.#drawDot(ctx,column,row,this.tileSize);
       }
 
-      ctx.strokeStyle = "yellow";
-      ctx.strokeRect(
-        column* this.tileSize, 
-        row * this.tileSize, 
-        this.tileSize, 
-        this.tileSize
-        );
+      // ctx.strokeStyle = "yellow";
+      // ctx.strokeRect(
+      //   column* this.tileSize, 
+      //   row * this.tileSize, 
+      //   this.tileSize, 
+      //   this.tileSize
+      //   );
 
     }
    }
@@ -101,5 +103,46 @@ export default class TileMap{
   setCanvasSize(canvas){
     canvas.width = this.map[0].length * this.tileSize;
     canvas.height = this.map.length * this.tileSize;
+  }
+
+  didCollideWithEnvironment(x,y,direction){
+    if(
+      Number.isInteger(x/this.tileSize) && 
+      Number.isInteger(y/ this.tileSize)
+      ){
+        let column = 0;
+        let row = 0;
+        let nextColumn = 0;
+        let nextRow = 0;
+
+        switch(direction){
+          case MovingDirection.right:
+            nextColumn = x + this.tileSize;
+            column = nextColumn /this.tileSize;
+            row = y / this.tileSize;
+            break; 
+          case MovingDirection.left:
+            nextColumn = x - this.tileSize;
+            column = nextColumn /this.tileSize;
+            row = y / this.tileSize;
+            break; 
+          case MovingDirection.up:
+            nextRow = y - this.tileSize;
+            row = nextRow /this.tileSize;
+            column = x / this.tileSize;
+            break; 
+          case MovingDirection.down:
+            nextRow = y + this.tileSize;
+            row = nextRow /this.tileSize;
+            column = x / this.tileSize;
+            break; 
+        }
+        const tile = this.map[row][column];
+        if(tile === 1){
+          return true;
+        }
+      }
+      return false;
+
   }
 }
